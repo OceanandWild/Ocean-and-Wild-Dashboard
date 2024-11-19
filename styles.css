@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.control-panel {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.app-container {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.app-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.app-info {
+    font-size: 14px;
+    color: #555;
+}
+
+.state-route-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.state-route {
+    position: relative;
+    margin-top: 20px;
+}
+
+.state-step {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    position: relative;
+    opacity: 1; /* Mantener visible el paso */
+    transition: opacity 0.3s ease;
+}
+
+/* Círculo de carga */
+.loading-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    border-top: 3px solid #333;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+    display: none; /* Inicialmente oculto */
+}
+
+.state-step.not-completed {
+    background-color: rgba(0, 0, 0, 0.1); /* Capa oscura para pasos no completados */
+}
+
+.state-step.completed {
+    background-color: rgba(0, 255, 0, 0.1); /* Capa verde para pasos completados */
+}
+
+.state-text {
+    font-size: 14px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.state-text.completed {
+    filter: blur(2px) brightness(0.5);
+    color: #666;
+}
+
+/* Mostrar el ✖️ en rojo cuando un paso falla */
+.state-step.failed .loading-circle {
+    display: none; /* Ocultar el círculo de carga */
+}
+
+.state-step.failed .error {
+    display: inline-block;
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -5px; /* Ajustamos la posición vertical del ✖️ */
+}
+
+/* Para ocultar el círculo de carga cuando el paso está completado */
+.state-step.completed .loading-circle {
+    display: none; /* Ocultar el círculo de carga */
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none;
+}
